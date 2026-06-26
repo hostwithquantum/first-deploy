@@ -1,0 +1,9 @@
+.git
+.github
+.envrc
+Dockerfile
+.dockerignore
+Makefile
+*.test.js
+node_modules
+npm-debug.log

@@ -1,0 +1,271 @@
+/* Fonts — open (OFL) replacements. See static/fonts/*-OFL.txt for licenses.
+   Geist (body) -> Roobert; Space Grotesk (headlines) -> Midnight Sans;
+   Big Shoulders Stencil (ornament) -> TwoStroke. */
+@font-face {
+  font-family: "geist";
+  src: url("/static/fonts/Geist-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "geist";
+  src: url("/static/fonts/Geist-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/static/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "big-shoulders-stencil";
+  src: url("/static/fonts/BigShouldersStencil.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Color tokens (from tailwind.config.cjs) */
+:root {
+  --silverphoenix-light-medium: #f1f1fc;
+  --grey: #777;
+  --grapefruit: #ff585d;
+  --blueberry: #0b24fb;
+  --black: #0a0a0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "geist", system-ui, sans-serif;
+  color: var(--black);
+  /* dotted pattern over a soft blueberry→silverphoenix wash */
+  background-color: var(--silverphoenix-light-medium);
+  background-image:
+    radial-gradient(
+      circle at 1px 1px,
+      rgba(10, 10, 10, 0.07) 1px,
+      transparent 0
+    ),
+    radial-gradient(
+      ellipse 90% 60% at 50% 0%,
+      rgba(11, 36, 251, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 80% 50% at 50% 100%,
+      rgba(255, 88, 93, 0.08),
+      transparent 70%
+    );
+  background-size:
+    24px 24px,
+    100% 100%,
+    100% 100%;
+  background-attachment: fixed;
+}
+
+/* The focused shell: full-screen, centered, ornamented */
+.focused-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.back-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  font-size: 0.875rem;
+  color: var(--grey);
+  text-decoration: none;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.focused-main {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card holding the actual content */
+.card {
+  width: 100%;
+  max-width: 48rem;
+  text-align: left;
+}
+
+/* Type scale (subset of app.css) */
+.p-regular {
+  font-family: "geist", system-ui, sans-serif;
+  font-size: 21px;
+  line-height: 150%;
+  margin: 0 0 1rem;
+}
+@media (min-width: 768px) {
+  .p-regular {
+    font-size: 26px;
+  }
+}
+
+.label-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hero — big headline with smaller text beside it (from Deploy/Hero.svelte) */
+.hero {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 2fr 1fr; /* headline ~8 cols, desc ~4 cols */
+  }
+}
+
+.kicker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--grapefruit);
+  margin: 0 0 0.75rem;
+}
+
+.hero-title {
+  font-family: "space-grotesk", system-ui, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 0.95;
+  margin: 0;
+  word-break: break-word;
+}
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 88px;
+  }
+}
+
+.hero-desc {
+  font-family: "geist", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.625;
+  color: var(--grey);
+}
+@media (min-width: 768px) {
+  .hero-desc {
+    border-left: 1px solid var(--black);
+    padding-left: 1.25rem;
+  }
+}
+
+/* Inline / block code snippet */
+.command {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #b2b2cc;
+  border-radius: 6px;
+  padding: 0.15em 0.45em;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.exclaim {
+  color: var(--grapefruit);
+}
+
+/* Deploy steps — left-aligned against the centered card */
+.steps-intro {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-weight: 750;
+}
+.steps {
+  text-align: left;
+  margin: 0;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-family: "geist", system-ui, sans-serif;
+  font-size: 19px;
+  line-height: 150%;
+}
+.steps li::marker {
+  font-weight: 750;
+  color: var(--blueberry);
+}
+.steps a {
+  color: var(--blueberry);
+  text-decoration: underline;
+}
+
+/* Ornament — oversized glyph bottom-left + astrocat caption bottom-right */
+.ornament-glyph {
+  font-family: "big-shoulders-stencil", sans-serif;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  z-index: 0;
+  line-height: 1;
+  color: var(--grapefruit);
+  opacity: 0.12;
+  transform: rotate(-20deg);
+  font-size: 360px;
+  bottom: -80px;
+  left: -1.5rem;
+}
+@media (min-width: 640px) {
+  .ornament-glyph {
+    font-size: 720px;
+    bottom: -180px;
+    left: -4rem;
+  }
+}
+
+.ornament-corner {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (min-width: 640px) {
+  .ornament-corner {
+    display: flex;
+  }
+}
+.ornament-corner img {
+  width: 80px;
+  height: auto;
+}

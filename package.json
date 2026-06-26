@@ -1,0 +1,15 @@
+{
+  "name": "first-deploy",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Placeholder for Runway.",
+  "license": "MPL-2.0",
+  "scripts": {
+    "start": "node server.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.8.5"
+  }
+}
