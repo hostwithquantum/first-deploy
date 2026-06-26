@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Deploy</title>
+    <link rel="stylesheet" href="/static/app.css" />
+    <script defer src="/static/alpine.min.js"></script>
+  </head>
+  <body>
+    <div class="focused-shell">
+      <a
+        href="https://ui.runway.horse/dashboard?utm_source=first-deploy&amp;utm_medium=app&amp;utm_campaign=onboarding"
+        class="back-link"
+        data-testid="focused-back-link"
+      >
+        &larr; Back
+      </a>
+
+      <span class="ornament-glyph" aria-hidden="true">R</span>
+      <div class="ornament-corner" aria-hidden="true">
+        <img src="/static/astrocat-smol.svg" alt="" />
+        <span class="label-mono">Get lift off</span>
+      </div>
+
+      <main class="focused-main">
+        <div class="card" x-data="{ cfg: __APP_CONFIG__ }">
+          <!-- Hero: big headline (8 cols) + small text beside it (4 cols) -->
+          <div class="hero">
+            <div class="hero-head">
+              <p class="kicker">Get started — Bulletin № 01</p>
+              <h1 class="hero-title">
+                <span x-text="cfg.app + ' is live'"></span
+                ><span class="exclaim">!</span>
+              </h1>
+            </div>
+            <div class="hero-desc">
+              And here's how to update it whenever you push new code.
+            </div>
+          </div>
+
+          <p class="p-regular steps-intro">Three steps to success:</p>
+          <ol class="steps">
+            <li>
+              Install the
+              <a
+                href="https://www.runway.horse/docs/cli/install/?utm_source=first-deploy&amp;utm_medium=app&amp;utm_campaign=onboarding"
+                rel="external"
+                >Runway CLI</a
+              >
+            </li>
+            <li>
+              Connect your local directory to Runway, run:
+              <code
+                class="command"
+                x-text="'runway gitremote -a ' + cfg.app"
+              ></code>
+            </li>
+            <li>Deploy with <code class="command">runway app deploy</code></li>
+          </ol>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

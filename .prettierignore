@@ -1,0 +1,4 @@
+# vendored / generated
+static/alpine.min.js
+static/fonts/
+node_modules/
