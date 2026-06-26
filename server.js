@@ -40,10 +40,11 @@ function serveStatic(urlPath, res) {
   });
 }
 
-// Inject server-side values as JSON so quotes and special chars stay safe.
+// Inject the app name into the template. It sits inside a single-quoted
+// Alpine string, so the only thing that could break it is a quote in the
+// value — app names don't have those.
 function render() {
-  const config = JSON.stringify({ app: RUNWAY_APP });
-  return template.replace("__APP_CONFIG__", config);
+  return template.replace("__RUNWAY_APP__", RUNWAY_APP);
 }
 
 const server = http.createServer((req, res) => {

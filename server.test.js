@@ -45,7 +45,8 @@ test("renders the env var into the page", async () => {
     const res = await get(base + "/");
     assert.strictEqual(res.status, 200);
     assert.match(res.body, /hello-test/);
-    assert.doesNotMatch(res.body, /__APP_CONFIG__/);
+    assert.doesNotMatch(res.body, /__RUNWAY_APP__/);
+    assert.match(res.body, /x-data="\{ app: 'hello-test' \}"/);
 
     const missing = await get(base + "/nope");
     assert.strictEqual(missing.status, 404);
