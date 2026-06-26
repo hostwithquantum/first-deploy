@@ -24,13 +24,12 @@
       </div>
 
       <main class="focused-main">
-        <div class="card" x-data="{ cfg: __APP_CONFIG__ }">
-          <!-- Hero: big headline (8 cols) + small text beside it (4 cols) -->
+        <div class="card" x-data="{ app: '__RUNWAY_APP__' }">
           <div class="hero">
             <div class="hero-head">
-              <p class="kicker">Get started — Bulletin № 01</p>
+              <p class="kicker">Get started</p>
               <h1 class="hero-title">
-                <span x-text="cfg.app + ' is live'"></span
+                <span x-text="app + ' is live'"></span
                 ><span class="exclaim">!</span>
               </h1>
             </div>
@@ -53,7 +52,7 @@
               Connect your local directory to Runway, run:
               <code
                 class="command"
-                x-text="'runway gitremote -a ' + cfg.app"
+                x-text="'runway gitremote -a ' + app"
               ></code>
             </li>
             <li>Deploy with <code class="command">runway app deploy</code></li>
